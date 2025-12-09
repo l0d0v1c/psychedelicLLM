@@ -75,28 +75,7 @@ By perturbing intermediate layers (analogous to "abstract representations"), we 
 
 ## Architecture
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                    PsychedelicLLM                           │
-│                                                             │
-│  ┌─────────────┐    ┌─────────────────────────────────┐    │
-│  │   Model     │    │      PsychedelicLayer (x36)     │    │
-│  │  SmolLM3    │───▶│                                 │    │
-│  │ pseudoLuc   │    │  ┌─────────┐  ┌─────────────┐  │    │
-│  └─────────────┘    │  │Original │─▶│Perturbations│  │    │
-│                     │  │ Layer   │  │             │  │    │
-│                     │  └─────────┘  └─────────────┘  │    │
-│                     └─────────────────────────────────┘    │
-│                                                             │
-│  ┌─────────────────┐    ┌─────────────────────────────┐    │
-│  │ EntropyTracker  │    │      TripVisualizer         │    │
-│  │                 │    │                             │    │
-│  │ - hidden states │    │ - comparative charts        │    │
-│  │ - attention     │    │ - entropy heatmaps          │    │
-│  │ - logits        │    │ - radar charts              │    │
-│  └─────────────────┘    └─────────────────────────────┘    │
-└─────────────────────────────────────────────────────────────┘
-```
+![Architecture](architecture.svg)
 
 ## Perturbation Mechanisms
 
@@ -379,6 +358,8 @@ pip install mlx mlx-lm matplotlib numpy pyyaml
 ### Model
 
 - **pseudoLuc**: A French personality clone fine-tuned from SmolLM3-3B-Base using LoRA on personal Q&A data. The model captures a specific writing style and worldview, making the "altered states" particularly interesting as they perturb a learned personality.
+
+- Brunet, L.E. (2025). "Le problème difficile de l'identité : évaluation d'un clone LLM". *JITIPEE*, 9. [DOI: 10.52497/jitipee.v9i2.381](https://doi.org/10.52497/jitipee.v9i2.381)
 
 ---
 
